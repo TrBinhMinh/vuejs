@@ -1,61 +1,44 @@
 <template>
-  <div>
-    <the-header></the-header>
-    <!-- <badge-list></badge-list>
-    <user-info
-      :full-name="activeUser.name"
-      :info-text="activeUser.description"
-      :role="activeUser.role"
-    ></user-info>
-    <course-goals #default="slotProps">
-      <h2>{{ slotProps.item }}</h2>
-    </course-goals> -->
-    <button @click="setSelectedComponent('active-goals')">Active Goals</button>
-    <button @click="setSelectedComponent('manage-goals')">Manage Goals</button>
-    <keep-alive>
-      <component :is="selectedComponent"></component>
-    </keep-alive>
-  </div>
+  <stored-resources :resources="storedResources"></stored-resources>
 </template>
 
 <script>
-import TheHeader from "./components/layout/TheHeader.vue";
-// import BadgeList from "./components/BadgeList.vue";
-// import UserInfo from "./components/UserInfo.vue";
-// import CourseGoals from "./components/CourseGoals.vue";
-import ActiveGoals from "./components/ActiveGoals.vue";
-import ManageGoals from "./components/ManageGoals.vue";
+import StoredResources from './components/learning-resources/StoredResources.vue'
 
 export default {
   components: {
-    TheHeader,
-    // BadgeList,
-    // UserInfo,
-    // CourseGoals,
-    ActiveGoals,
-    ManageGoals,
+    StoredResources,
   },
   data() {
     return {
-      selectedComponent: "active-goals",
-      activeUser: {
-        name: "Maximilian Schwarzmüller",
-        description: "Site owner and admin",
-        role: "admin",
-      },
+      storedResources: [
+        {
+          id: 'official-guide',
+          title: 'Official Guide',
+          description: 'The official Vue.js documentation.',
+          link: 'https://vuejs.org',
+        },
+        {
+          id: 'google',
+          title: 'Google',
+          description: 'Learn to google...',
+          link: 'https://google.com',
+        },
+      ],
     };
-  },
-  methods: {
-    setSelectedComponent(cmp) {
-      this.selectedComponent = cmp;
-    },
   },
 };
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
 html {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {

@@ -6,16 +6,17 @@
       :title="res.title"
       :description="res.description"
       :link="res.link"
+      :id="res.id"
     ></learning-resource>
   </ul>
 </template>
 
 <script>
-import LearningResource from './LearningResource.vue';
+import LearningResource from "./LearningResource.vue";
 
 export default {
   components: { LearningResource },
-  inject: ['resources'],
+  inject: ["resources"],
 };
 </script>
 

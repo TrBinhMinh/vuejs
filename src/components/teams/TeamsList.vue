@@ -1,4 +1,5 @@
 <template>
+  <router-view></router-view>
   <ul>
     <teams-item
       v-for="team in teams"
@@ -11,13 +12,13 @@
 </template>
 
 <script>
-import TeamsItem from './TeamsItem.vue';
+import TeamsItem from "./TeamsItem.vue";
 
 export default {
   components: {
     TeamsItem,
   },
-  inject: ['teams'],
+  inject: ["teams"],
 };
 </script>
 
